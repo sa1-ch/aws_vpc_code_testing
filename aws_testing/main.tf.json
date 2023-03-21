@@ -1,37 +1,58 @@
 [
-    {
-        "provider": {
-            "aws": {
-                "region": "ap-south-1"
-            }
-        }
-    },
-    {
-        "resource": {
-            "aws_vpc": {
-                "vpc001": {
-                    "cidr_block": "10.0.0.0/16"
-                }
-            }
-        }
-    },
-    {
-        "resource": {
-            "aws_subnet": {
-                "subnet001": {
-                    "vpc_id": "${aws_vpc.vpc001.id}",
-                    "cidr_block": "10.0.1.0/24"
-                }
-            }
-        }
-    },
-    {
-        "resource": {
-            "aws_route_table": {
-                "routetable001": {
-                    "vpc_id": "${aws_vpc.vpc001.id}"
-                }
-            }
-        }
+  {
+    "provider": {
+      "aws": {
+        "region": "ap-south-1"
+      }
     }
+  },
+  {
+    "resource": {
+      "aws_vpc": {
+        "vpc001": {
+          "cidr_block": "10.0.0.0/16"
+        }
+      }
+    }
+  },
+  {
+    "resource": {
+      "aws_subnet": {
+        "subnet001": {
+          "vpc_id": "${aws_vpc.vpc001.id}",
+          "cidr_block": "10.0.1.0/24"
+        }
+      }
+    }
+  },
+  {
+    "resource": {
+      "aws_route_table": {
+        "routetable001": {
+          "vpc_id": "${aws_vpc.vpc001.id}"
+        }
+      }
+    }
+  },
+  {
+    "resource": {
+      "aws_default_security_group": {
+        "default": {
+          "vpc_id": "${aws_vpc.vpc001.id}"
+        }
+      }
+    }
+  },
+  {
+    "resource": {
+      "aws_flow_log": {
+        "example": {
+          "iam_role_arn": "arn",
+          "log_destination": "log",
+          "traffic_type": "ALL",
+          "vpc_id": "${aws_vpc.vpc001.id}"
+        }
+      }
+    }
+  }
 ]
