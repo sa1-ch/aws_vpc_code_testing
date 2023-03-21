@@ -25,21 +25,11 @@
             }
         }
     },
-    // {
-    //     "resource": {
-    //         "aws_internet_gateway": {
-    //             "gateway001": {
-    //                 "vpc_id": "aws_vpc.vpc001.id"
-    //             }
-    //         }
-    //     }
-    // },
     {
         "resource": {
             "aws_route_table": {
                 "routetable001": {
                     "vpc_id": "aws_vpc.vpc001.id"
-                    // "route": "cidr_block = \"0.0.0.0/0\" gateway_id = aws_internet_gateway.gateway001.id"
                 }
             }
         }
