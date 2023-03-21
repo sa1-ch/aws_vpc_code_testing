@@ -56,8 +56,8 @@
     "resource": {
       "aws_flow_log": {
         "example": {
-          "iam_role_arn": "arn:aws:logs:ap-south-1:064904422391:log-group:my-log-group:*",
-          "log_destination": "log",
+          "iam_role_arn": "arn",
+          "log_destination": "${aws_cloudwatch_log_group.example.arn}",
           "traffic_type": "ALL",
           "vpc_id": "${aws_vpc.vpc001.id}"
         }
